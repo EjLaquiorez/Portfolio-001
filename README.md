@@ -9,43 +9,38 @@ A personal portfolio site to showcase your work, skills, and contact information
 - **Skills** — Languages, tools, and frameworks
 - **Contact** — Email, LinkedIn, GitHub, or a contact form
 
-## Getting started
+## Getting started (beginner path)
 
-1. **Clone this repo** (or use it as your project folder).
+This repo uses **plain HTML, CSS, and JavaScript** — no install step. Great for learning front-end basics.
 
-2. **Pick how you want to build it:**
-   - **Static HTML/CSS/JS** — Simple, fast, easy to host anywhere
-   - **React / Next.js** — Component-based, good for interactive UIs
-   - **Astro / Vite** — Fast static sites with optional frameworks
+1. **Open the site** — Double-click `index.html`, or right-click → Open with → your browser.
+2. **Read the comments** — Each file has `TODO` and tutorial notes. Start with `index.html`, then `css/styles.css`, then `js/main.js` (optional at first).
+3. **Save and refresh** — Edit a file, save, press F5 in the browser to see changes.
+4. **Add assets** — Put photos in `assets/images/` and your CV as `assets/resume.pdf` when ready.
+5. **Deploy** — Push to GitHub and enable [GitHub Pages](https://pages.github.com/) (Settings → Pages → branch `main`, folder `/` root).
 
-3. **Create your project** (example with a static site):
+### Suggested learning order
 
-   ```bash
-   # Option A: plain static files
-   mkdir src
-   # Add index.html, styles.css, and script.js
+| Step | File | What to do |
+|------|------|------------|
+| 1 | `index.html` | Fill in text for Home, About, Projects, Skills, Contact |
+| 2 | `css/styles.css` | Set colors in `:root`, then style each section |
+| 3 | `assets/images/` | Add a profile photo and project screenshots |
+| 4 | `js/main.js` | Add a mobile menu or small interactions (optional) |
 
-   # Option B: Vite + vanilla or React
-   npm create vite@latest . -- --template vanilla
-   npm install
-   npm run dev
-   ```
-
-4. **Develop locally** — Open the dev server URL (often `http://localhost:5173`) and edit until it looks right.
-
-5. **Deploy** — Push to GitHub and enable [GitHub Pages](https://pages.github.com/), or use [Vercel](https://vercel.com/) / [Netlify](https://www.netlify.com/) for free hosting.
-
-## Suggested folder structure
+## Project structure
 
 ```
 Portfolio-001/
 ├── README.md
-├── index.html          # or src/ for a framework
-├── assets/
-│   ├── images/
-│   └── resume.pdf
+├── index.html          # Page structure + HTML comments
 ├── css/
-└── js/
+│   └── styles.css      # Look and layout + CSS comments
+├── js/
+│   └── main.js         # Optional interactivity + JS comments
+└── assets/
+    ├── images/         # Photos & project screenshots
+    └── resume.pdf      # Add your PDF when ready
 ```
 
 ## Tips

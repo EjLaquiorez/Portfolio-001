@@ -1,0 +1,169 @@
+/*
+  PORTFOLIO STYLES — beginner path
+
+  HOW TO USE THIS FILE
+  1. Open index.html in your browser.
+  2. Edit one small thing here (e.g. change --color-accent), save, refresh the browser.
+  3. Repeat until the site looks like "you."
+
+  LEARNING ORDER (suggested)
+  1. CSS variables (colors/fonts) below
+  2. Basic layout for header, sections, footer
+  3. Typography (headings, paragraphs, links)
+  4. Project cards and skill list
+  5. Media queries at the bottom for mobile
+
+  TIP: Use browser DevTools (F12) → Elements → Styles to experiment live.
+*/
+
+
+/* ============================================
+   STEP 1: CSS variables (your design tokens)
+   Change these first — the whole site picks them up.
+   ============================================ */
+:root {
+  /* TODO: Pick your colors (search "color palette" for ideas) */
+  --color-bg: #0f1419;
+  --color-surface: #1a2332;
+  --color-text: #e8eaed;
+  --color-text-muted: #9aa0a6;
+  --color-accent: #58a6ff;
+  --color-accent-hover: #79b8ff;
+
+  /* TODO: Fonts — start with system fonts; add Google Fonts later if you want */
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-heading: var(--font-body);
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+
+  --radius: 8px;
+  --max-width: 960px;
+}
+
+
+/* ============================================
+   STEP 2: Reset / base styles
+   Makes spacing predictable across browsers.
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* smooth jump when clicking nav links */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* TODO: Style images when you add them */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-accent);
+  /* TODO: Add text-decoration, hover styles */
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+
+/* ============================================
+   STEP 3: Layout — header & navigation
+   ============================================ */
+header {
+  /* TODO: position sticky top, background, padding */
+}
+
+nav {
+  /* TODO: flexbox to space links — display: flex; gap: var(--space-sm); */
+}
+
+nav a {
+  /* TODO: style nav links (no underline, padding, hover) */
+}
+
+
+/* ============================================
+   STEP 4: Sections (shared spacing)
+   Each <section> in index.html gets breathing room.
+   ============================================ */
+section {
+  /* TODO: max-width, margin auto, padding — example:
+     max-width: var(--max-width);
+     margin: 0 auto;
+     padding: var(--space-xl) var(--space-md);
+  */
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  /* TODO: font-size, margin-bottom */
+}
+
+h2 {
+  /* TODO: section titles — often larger than h3 */
+}
+
+
+/* ============================================
+   STEP 5: Hero (#home)
+   ============================================ */
+#home {
+  /* TODO: min-height, center text, maybe a gradient background */
+}
+
+.btn {
+  /* TODO: button / CTA styles — display: inline-block; padding; border-radius; */
+}
+
+
+/* ============================================
+   STEP 6: Project cards
+   ============================================ */
+.project-card {
+  /* TODO: background var(--color-surface), padding, border-radius, margin-bottom */
+}
+
+
+/* ============================================
+   STEP 7: Skills list
+   ============================================ */
+#skills ul {
+  /* TODO: remove default bullets or use flex wrap for "tags" */
+}
+
+
+/* ============================================
+   STEP 8: Footer
+   ============================================ */
+footer {
+  /* TODO: smaller text, muted color, centered, padding */
+}
+
+
+/* ============================================
+   STEP 9: Responsive — mobile first
+   Add rules inside @media when the layout breaks on small screens.
+   ============================================ */
+@media (max-width: 768px) {
+  /* TODO: stack nav links, reduce padding, single-column projects */
+}

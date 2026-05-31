@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    STEP 1: Page basics
+    - Change the <title> to your name (shows in the browser tab).
+    - lang="en" helps screen readers; use your language code if different.
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your name — portfolio. Replace this with a short sentence about you.">
+  <title>Your Name | Portfolio</title>
+
+  <!--
+    STEP 2: Link your CSS
+    - styles.css holds colors, fonts, layout.
+    - Open index.html in a browser after you save both files.
+    - Tip: right-click index.html → Open with → Chrome or Edge.
+  -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!--
+    NAVIGATION
+    - Add links that match each section id below (href="#about" jumps to id="about").
+    - Keep 4–6 links max so the menu stays simple.
+  -->
+  <header>
+    <nav aria-label="Main navigation">
+      <!-- TODO: Replace # with your section ids -->
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!--
+      HERO (first thing visitors see)
+      - Your name, one line about what you do, and a call-to-action button.
+      - Example CTA: "View my work" linking to #projects.
+    -->
+    <section id="home">
+      <!-- TODO: Add an <h1> with your name -->
+      <!-- TODO: Add a <p> tagline, e.g. "Aspiring front-end developer" -->
+      <!-- TODO: Add <a href="#projects" class="btn">View my work</a> -->
+    </section>
+
+    <!--
+      ABOUT
+      - 2–3 short paragraphs: who you are, what you're learning, what you're looking for.
+      - Optional: add a photo in assets/images/ and use <img src="assets/images/your-photo.jpg" alt="Photo of Your Name">
+    -->
+    <section id="about">
+      <h2>About Me</h2>
+      <!-- TODO: Write your bio here -->
+    </section>
+
+    <!--
+      PROJECTS
+      - Show 2–4 projects (school, personal, or tutorials you built).
+      - Each project: title, short description, tech used, link to demo or GitHub.
+      - Copy the <article> block below for each new project.
+    -->
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <article class="project-card">
+        <!-- TODO: Project image — <img src="assets/images/project-1.png" alt="Screenshot of Project Name"> -->
+        <h3>Project Title</h3>
+        <p>One or two sentences about what this project does and what you learned.</p>
+        <!-- TODO: List tech, e.g. HTML, CSS, JavaScript -->
+        <p><a href="#" target="_blank" rel="noopener noreferrer">Live demo</a></p>
+        <p><a href="#" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+      </article>
+
+      <!-- TODO: Duplicate <article class="project-card"> for more projects -->
+    </section>
+
+    <!--
+      SKILLS
+      - List tools and languages you're learning (honest list beats a huge fake one).
+      - You can use a <ul> list or simple "skill tags" styled in CSS.
+    -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <!-- TODO: Replace with your skills -->
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ul>
+    </section>
+
+    <!--
+      CONTACT
+      - Email, GitHub, LinkedIn — at least one way to reach you.
+      - Optional later: a form (needs a backend or a service like Formspree).
+    -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <!-- TODO: Add links, e.g. <a href="mailto:you@email.com">Email me</a> -->
+      <!-- TODO: Optional — link to assets/resume.pdf after you add your PDF -->
+    </section>
+
+  </main>
+
+  <!--
+    FOOTER
+    - Copyright year and your name. Update the year each January if you like.
+  -->
+  <footer>
+    <p><!-- TODO: &copy; 2026 Your Name. All rights reserved. --></p>
+  </footer>
+
+  <!--
+    STEP 3: Link your JavaScript
+    - main.js runs after the HTML loads (good for menus, smooth scroll, etc.).
+    - Place <script> at the end of <body> so the page content loads first.
+  -->
+  <script src="js/main.js"></script>
+</body>
+</html>
