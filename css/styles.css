@@ -1,38 +1,30 @@
 /*
-  PORTFOLIO STYLES — beginner path
-
-  HOW TO USE THIS FILE
-  1. Open index.html in your browser.
-  2. Edit one small thing here (e.g. change --color-accent), save, refresh the browser.
-  3. Repeat until the site looks like "you."
-
-  LEARNING ORDER (suggested)
-  1. CSS variables (colors/fonts) below
-  2. Basic layout for header, sections, footer
-  3. Typography (headings, paragraphs, links)
-  4. Project cards and skill list
-  5. Media queries at the bottom for mobile
-
-  TIP: Use browser DevTools (F12) → Elements → Styles to experiment live.
+  Classy light theme — cool neutrals, strong sans type, navy accents.
+  Tweak :root first; the whole site follows those tokens.
 */
 
-
-/* ============================================
-   STEP 1: CSS variables (your design tokens)
-   Change these first — the whole site picks them up.
-   ============================================ */
 :root {
-  /* TODO: Pick your colors (search "color palette" for ideas) */
-  --color-bg: #0f1419;
-  --color-surface: #1a2332;
-  --color-text: #e8eaed;
-  --color-text-muted: #9aa0a6;
-  --color-accent: #58a6ff;
-  --color-accent-hover: #79b8ff;
+  --color-bg: #f0f2f5;
+  --color-bg-alt: #e4e8ed;
+  --color-surface: #ffffff;
+  --color-surface-muted: #e8ecf1;
+  --color-border: rgba(15, 23, 42, 0.1);
+  --color-border-strong: rgba(15, 23, 42, 0.18);
 
-  /* TODO: Fonts — start with system fonts; add Google Fonts later if you want */
-  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-heading: var(--font-body);
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-accent: #1e3a5f;
+  --color-accent-hover: #152a45;
+  --color-accent-soft: rgba(30, 58, 95, 0.1);
+  --color-accent-glow: rgba(30, 58, 95, 0.12);
+  --color-ink: #0f172a;
+
+  --font-body: "Space Grotesk", system-ui, sans-serif;
+  --font-heading: "Space Grotesk", system-ui, sans-serif;
+
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 12px 36px rgba(15, 23, 42, 0.1);
+  --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.12);
 
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -40,15 +32,11 @@
   --space-lg: 2.5rem;
   --space-xl: 4rem;
 
-  --radius: 8px;
-  --max-width: 960px;
+  --radius: 6px;
+  --radius-lg: 10px;
+  --max-width: 1100px;
 }
 
-
-/* ============================================
-   STEP 2: Reset / base styles
-   Makes spacing predictable across browsers.
-   ============================================ */
 *,
 *::before,
 *::after {
@@ -56,19 +44,21 @@
 }
 
 html {
-  scroll-behavior: smooth; /* smooth jump when clicking nav links */
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   font-family: var(--font-body);
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--color-text);
   background-color: var(--color-bg);
+  background-image:
+    radial-gradient(ellipse 90% 60% at 10% -10%, var(--color-accent-glow), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 95% 5%, rgba(148, 163, 184, 0.12), transparent 50%);
 }
 
-/* TODO: Style images when you add them */
 img {
   max-width: 100%;
   height: auto;
@@ -77,93 +67,544 @@ img {
 
 a {
   color: var(--color-accent);
-  /* TODO: Add text-decoration, hover styles */
+  text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 a:hover {
   color: var(--color-accent-hover);
 }
 
+::selection {
+  background-color: var(--color-accent-soft);
+  color: var(--color-text);
+}
 
 /* ============================================
-   STEP 3: Layout — header & navigation
+   Header & navigation
    ============================================ */
-header {
-  /* TODO: position sticky top, background, padding */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(240, 242, 245, 0.88);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(14px);
 }
 
-nav {
-  /* TODO: flexbox to space links — display: flex; gap: var(--space-sm); */
+.header-inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-md);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-sm) var(--space-md);
 }
 
-nav a {
-  /* TODO: style nav links (no underline, padding, hover) */
+#main-nav {
+  justify-self: center;
 }
 
+.btn--nav {
+  justify-self: end;
+}
+
+.site-logo {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.site-logo:hover {
+  color: var(--color-accent);
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs) var(--space-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-link {
+  display: block;
+  padding: var(--space-xs) var(--space-sm);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: var(--radius);
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--color-text);
+  background-color: var(--color-accent-soft);
+}
+
+.nav-link--active {
+  color: var(--color-text);
+}
+
+.nav-link--active::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 0.45rem;
+  vertical-align: middle;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: var(--space-xs);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  cursor: pointer;
+}
+
+.menu-toggle__bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 1px;
+}
 
 /* ============================================
-   STEP 4: Sections (shared spacing)
-   Each <section> in index.html gets breathing room.
+   Buttons
+   ============================================ */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn--nav {
+  color: #fff;
+  background-color: var(--color-ink);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--nav:hover {
+  color: #fff;
+  background-color: #2d2a28;
+  box-shadow: var(--shadow-md);
+}
+
+.btn--primary {
+  margin-top: var(--space-md);
+  color: #fff;
+  background-color: var(--color-accent);
+  box-shadow: 0 8px 24px rgba(30, 58, 95, 0.22);
+}
+
+.btn--primary:hover {
+  color: #fff;
+  background-color: var(--color-accent-hover);
+}
+
+/* ============================================
+   Sections
    ============================================ */
 section {
-  /* TODO: max-width, margin auto, padding — example:
-     max-width: var(--max-width);
-     margin: 0 auto;
-     padding: var(--space-xl) var(--space-md);
-  */
+  scroll-margin-top: 4.5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
 }
 
 h1, h2, h3 {
   font-family: var(--font-heading);
-  line-height: 1.2;
-  /* TODO: font-size, margin-bottom */
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 var(--space-md);
+  letter-spacing: -0.03em;
 }
 
 h2 {
-  /* TODO: section titles — often larger than h3 */
+  font-size: clamp(1.15rem, 3vw, 1.35rem);
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
+h2::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-top: var(--space-sm);
+  background-color: var(--color-accent);
+}
+
+/* About — sits on a lifted white panel */
+#about {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius-lg) + 4px);
+  box-shadow: var(--shadow-md);
+}
+
+.about-grid {
+  display: grid;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.about-content p {
+  margin: 0 0 var(--space-md);
+  max-width: 65ch;
+  color: var(--color-text-muted);
+}
+
+.about-content p strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.about-content a {
+  font-weight: 600;
+}
+
+.about-highlights {
+  margin: var(--space-md) 0 0;
+  padding: var(--space-md);
+  list-style: none;
+  background-color: var(--color-surface-muted);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--color-accent);
+}
+
+.about-highlights li {
+  padding: var(--space-xs) 0;
+  color: var(--color-text);
+}
+
+.about-highlights li + li {
+  border-top: 1px solid var(--color-border);
+}
+
+.about-photo {
+  margin: 0;
+  justify-self: center;
+}
+
+.about-photo img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  object-fit: cover;
+  object-position: top center;
+  aspect-ratio: 3 / 4;
+}
+
+@media (min-width: 768px) {
+  .about-grid:has(.about-photo) {
+    grid-template-columns: 1fr auto;
+  }
+}
 
 /* ============================================
-   STEP 5: Hero (#home)
+   Hero
    ============================================ */
-#home {
-  /* TODO: min-height, center text, maybe a gradient background */
+.hero {
+  position: relative;
+  max-width: none;
+  min-height: calc(100vh - 5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-xl);
+  overflow: hidden;
 }
 
-.btn {
-  /* TODO: button / CTA styles — display: inline-block; padding; border-radius; */
+.hero__glow {
+  position: absolute;
+  width: min(480px, 75vw);
+  height: min(480px, 75vw);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
+.hero__glow--left {
+  top: -10%;
+  left: -15%;
+  background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 65%);
+}
+
+.hero__glow--right {
+  top: 0;
+  right: -10%;
+  background: radial-gradient(circle, rgba(148, 163, 184, 0.2) 0%, transparent 65%);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.hero__eyebrow {
+  margin: 0 0 var(--space-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.hero__eyebrow span {
+  color: var(--color-text);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.hero__title {
+  margin: 0 0 var(--space-md);
+  font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.hero__accent {
+  color: var(--color-accent);
+}
+
+.hero__cursor {
+  margin-left: 2px;
+  font-style: normal;
+  color: var(--color-text-muted);
+  animation: cursor-blink 1s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.hero__tagline {
+  max-width: 32rem;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.hero-photo-stack {
+  position: relative;
+  width: min(100%, 280px);
+  min-height: 360px;
+  margin: 0 auto;
+}
+
+.hero-photo-stack__frame {
+  position: absolute;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface-muted);
+  pointer-events: none;
+}
+
+.hero-photo-stack__frame--back {
+  top: -14px;
+  right: -18px;
+  width: 92%;
+  height: 96%;
+  opacity: 0.6;
+}
+
+.hero-photo-stack__frame--mid {
+  top: -7px;
+  right: -9px;
+  width: 96%;
+  height: 98%;
+  opacity: 0.85;
+}
+
+.hero-photo-stack__card {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-photo-stack__card img {
+  width: 100%;
+  aspect-ratio: 7 / 9;
+  object-fit: cover;
+}
+
+.hero-scroll {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: auto;
+  padding-top: var(--space-lg);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.hero-scroll:hover {
+  color: var(--color-text);
+}
+
+.hero-scroll__ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-scroll__icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+@media (min-width: 900px) {
+  .hero__inner {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  .hero__visual {
+    justify-self: end;
+  }
+}
 
 /* ============================================
-   STEP 6: Project cards
+   Projects, skills, footer (light-theme ready)
    ============================================ */
 .project-card {
-  /* TODO: background var(--color-surface), padding, border-radius, margin-bottom */
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
-
-/* ============================================
-   STEP 7: Skills list
-   ============================================ */
 #skills ul {
-  /* TODO: remove default bullets or use flex wrap for "tags" */
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
+#skills li {
+  padding: 0.4rem 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+}
 
-/* ============================================
-   STEP 8: Footer
-   ============================================ */
 footer {
-  /* TODO: smaller text, muted color, centered, padding */
+  margin-top: var(--space-lg);
+  padding: var(--space-lg) var(--space-md);
+  font-size: 0.875rem;
+  text-align: center;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
 }
 
-
 /* ============================================
-   STEP 9: Responsive — mobile first
-   Add rules inside @media when the layout breaks on small screens.
+   Responsive
    ============================================ */
 @media (max-width: 768px) {
-  /* TODO: stack nav links, reduce padding, single-column projects */
+  .header-inner {
+    grid-template-columns: 1fr auto;
+  }
+
+  #main-nav {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+  }
+
+  .btn--nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+    justify-self: end;
+  }
+
+  #main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    padding: var(--space-sm) var(--space-md) var(--space-md);
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  #main-nav.nav-open {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-xs);
+  }
+
+  .nav-link {
+    padding: var(--space-sm);
+  }
 }

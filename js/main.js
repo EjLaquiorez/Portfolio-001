@@ -28,22 +28,26 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log(aboutSection);
   -------------------------------------------- */
 
-  /* --------------------------------------------
-     EXAMPLE 2: Mobile menu toggle
-     Steps:
-     1. In index.html, add a <button id="menu-toggle" aria-label="Open menu">Menu</button>
-     2. Give <nav> an id="main-nav"
-     3. Uncomment this block and style .nav-open in CSS
-
   const menuButton = document.querySelector("#menu-toggle");
   const nav = document.querySelector("#main-nav");
 
   if (menuButton && nav) {
+    const closeMenu = () => {
+      nav.classList.remove("nav-open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Open menu");
+    };
+
     menuButton.addEventListener("click", () => {
-      nav.classList.toggle("nav-open");
+      const isOpen = nav.classList.toggle("nav-open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    });
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
     });
   }
-  -------------------------------------------- */
 
   /* --------------------------------------------
      EXAMPLE 3: Highlight nav link for current section

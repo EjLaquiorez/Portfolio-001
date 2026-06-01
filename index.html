@@ -8,56 +8,126 @@
   -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Your name — portfolio. Replace this with a short sentence about you.">
-  <title>Your Name | Portfolio</title>
-
+  <meta name="description" content="Earl Laquiorez — junior full-stack developer building web apps across the stack, from UI to APIs and databases.">
+  <title>Justine | Portfolio</title>
   <!--
     STEP 2: Link your CSS
     - styles.css holds colors, fonts, layout.
     - Open index.html in a browser after you save both files.
     - Tip: right-click index.html → Open with → Chrome or Edge.
   -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
-  <!--
-    NAVIGATION
-    - Add links that match each section id below (href="#about" jumps to id="about").
-    - Keep 4–6 links max so the menu stays simple.
-  -->
-  <header>
-    <nav aria-label="Main navigation">
-      <!-- TODO: Replace # with your section ids -->
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#home" class="site-logo">Justine</a>
+      <button
+        type="button"
+        id="menu-toggle"
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="main-nav"
+        aria-label="Open menu"
+      >
+        <span class="menu-toggle__bar" aria-hidden="true"></span>
+        <span class="menu-toggle__bar" aria-hidden="true"></span>
+        <span class="menu-toggle__bar" aria-hidden="true"></span>
+      </button>
+      <nav id="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link nav-link--active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="btn btn--nav">Contact me</a>
+    </div>
   </header>
 
   <main>
 
-    <!--
-      HERO (first thing visitors see)
-      - Your name, one line about what you do, and a call-to-action button.
-      - Example CTA: "View my work" linking to #projects.
-    -->
-    <section id="home">
-      <!-- TODO: Add an <h1> with your name -->
-      <!-- TODO: Add a <p> tagline, e.g. "Aspiring front-end developer" -->
-      <!-- TODO: Add <a href="#projects" class="btn">View my work</a> -->
+    <section id="home" class="hero">
+      <!-- Decorative glows — empty divs styled in CSS (radial-gradient) -->
+      <div class="hero__glow hero__glow--left" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--right" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <div class="hero__text">
+          <p class="hero__eyebrow">Hi! I'm Justine — <span>Junior full-stack developer</span></p>
+          <h1 class="hero__title">
+            I build apps &amp;<br>
+            <span class="hero__accent">websites<span class="hero__cursor" aria-hidden="true">|</span></span>
+          </h1>
+          <p class="hero__tagline">
+            From responsive UIs to APIs and databases — I learn by shipping real projects.
+          </p>
+          <a href="#projects" class="btn btn--primary">View my work</a>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero-photo-stack">
+            <div class="hero-photo-stack__frame hero-photo-stack__frame--back" aria-hidden="true"></div>
+            <div class="hero-photo-stack__frame hero-photo-stack__frame--mid" aria-hidden="true"></div>
+            <div class="hero-photo-stack__card">
+              <img
+                src="assets/images/Suit%20and%20Tie%20Laquiorez.png"
+                alt="Portrait of Justine in a black suit"
+                width="280"
+                height="373"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="hero-scroll" aria-label="Scroll to About section">
+        <span class="hero-scroll__ring" aria-hidden="true"></span>
+        <span class="hero-scroll__label">Let's explore</span>
+        <span class="hero-scroll__icon" aria-hidden="true">↓</span>
+      </a>
     </section>
 
-    <!--
-      ABOUT
-      - 2–3 short paragraphs: who you are, what you're learning, what you're looking for.
-      - Optional: add a photo in assets/images/ and use <img src="assets/images/your-photo.jpg" alt="Photo of Your Name">
-    -->
     <section id="about">
       <h2>About Me</h2>
-      <!-- TODO: Write your bio here -->
+      <div class="about-grid">
+        <div class="about-content">
+          <p>
+            Hi, I'm <strong>Justine</strong>, a junior full-stack developer who enjoys
+            turning ideas into working web applications — from what users see in the browser to
+            the logic and data behind the scenes.
+          </p>
+          <p>
+            I'm building skills across the stack: responsive layouts with HTML and CSS,
+            interactivity with JavaScript, and back-end basics such as APIs, server-side code,
+            and databases. I learn best by shipping small projects, reading docs, and fixing
+            what breaks along the way.
+          </p>
+          <p>
+            I'm looking for opportunities to grow — internships, junior roles, or collaborative
+            projects where I can contribute, get feedback, and keep improving. If that sounds
+            like a fit, feel free to <a href="#contact">reach out</a> or browse my
+            <a href="#projects">projects</a> below.
+          </p>
+          <ul class="about-highlights">
+            <li>Front-end: HTML, CSS, JavaScript</li>
+            <li>Back-end: APIs, server logic, databases (learning)</li>
+            <li>Tools: Git, GitHub, VS Code</li>
+          </ul>
+        </div>
+        <figure class="about-photo">
+          <img
+            src="assets/images/Suit%20and%20Tie%20Laquiorez.png"
+            alt="Portrait of Justine in a black suit"
+            width="280"
+            height="373"
+          >
+        </figure>
+      </div>
     </section>
 
     <!--
