@@ -552,6 +552,107 @@ h2::after {
   border-radius: 999px;
 }
 
+#contact {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius-lg) + 2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-intro {
+  max-width: 58ch;
+  margin: 0 0 var(--space-lg);
+  color: var(--color-text-muted);
+}
+
+.contact-grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.contact-card,
+.contact-form {
+  padding: var(--space-md);
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.contact-card h3 {
+  margin: 0 0 var(--space-sm);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.contact-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-list li {
+  display: grid;
+  gap: 0.25rem;
+  padding: var(--space-sm) 0;
+}
+
+.contact-list li + li {
+  border-top: 1px solid var(--color-border);
+}
+
+.contact-list span {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.contact-note {
+  margin: var(--space-sm) 0 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.contact-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.contact-form label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+}
+
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
+  outline: 2px solid var(--color-accent-soft);
+  outline-offset: 1px;
+  border-color: var(--color-accent);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 7rem;
+}
+
+.contact-form .btn {
+  margin-top: 0.25rem;
+  width: fit-content;
+}
+
 footer {
   margin-top: var(--space-lg);
   padding: var(--space-lg) var(--space-md);
@@ -606,5 +707,12 @@ footer {
 
   .nav-link {
     padding: var(--space-sm);
+  }
+}
+
+@media (min-width: 860px) {
+  .contact-grid {
+    grid-template-columns: minmax(260px, 1fr) 1.2fr;
+    align-items: start;
   }
 }
