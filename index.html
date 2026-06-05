@@ -131,25 +131,108 @@
       </div>
     </section>
 
-    <!--
-      PROJECTS
-      - Show 2–4 projects (school, personal, or tutorials you built).
-      - Each project: title, short description, tech used, link to demo or GitHub.
-      - Copy the <article> block below for each new project.
-    -->
     <section id="projects">
       <h2>Projects</h2>
+      <p class="projects-intro">
+        A selection of work I've built while learning full-stack development — from
+        responsive front-ends to small apps with APIs and data. Each project taught me
+        something new about shipping, debugging, and improving as I go.
+      </p>
 
-      <article class="project-card">
-        <!-- TODO: Project image — <img src="assets/images/project-1.png" alt="Screenshot of Project Name"> -->
-        <h3>Project Title</h3>
-        <p>One or two sentences about what this project does and what you learned.</p>
-        <!-- TODO: List tech, e.g. HTML, CSS, JavaScript -->
-        <p><a href="#" target="_blank" rel="noopener noreferrer">Live demo</a></p>
-        <p><a href="#" target="_blank" rel="noopener noreferrer">GitHub</a></p>
-      </article>
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-card__media project-card__media--placeholder" aria-hidden="true">
+            <span>WEB</span>
+          </div>
+          <div class="project-card__body">
+            <h3>Personal Portfolio</h3>
+            <p>
+              This site — a responsive, single-page portfolio built with semantic HTML,
+              custom CSS, and vanilla JavaScript. I focused on layout, accessibility,
+              and a clean light theme that works on mobile and desktop.
+            </p>
+            <ul class="project-tags">
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript</li>
+              <li>Responsive design</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/EjLaquiorez/Portfolio-001" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="#home">Live demo</a>
+            </div>
+          </div>
+        </article>
 
-      <!-- TODO: Duplicate <article class="project-card"> for more projects -->
+        <article class="project-card">
+          <div class="project-card__media project-card__media--placeholder" aria-hidden="true">
+            <span>API</span>
+          </div>
+          <div class="project-card__body">
+            <h3>REST API Task Manager</h3>
+            <p>
+              A small back-end project with CRUD endpoints for tasks — create, read,
+              update, and delete. I practiced HTTP methods, JSON responses, and basic
+              validation while connecting a simple front-end to the API.
+            </p>
+            <ul class="project-tags">
+              <li>REST</li>
+              <li>JSON</li>
+              <li>Node.js</li>
+              <li>HTTP</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/EjLaquiorez" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__media project-card__media--placeholder" aria-hidden="true">
+            <span>UI</span>
+          </div>
+          <div class="project-card__body">
+            <h3>Interactive Landing Page</h3>
+            <p>
+              A marketing-style landing page with a mobile-first layout, smooth scroll
+              navigation, and DOM-driven interactions. Built to practice flexbox, grid,
+              and writing maintainable CSS without a framework.
+            </p>
+            <ul class="project-tags">
+              <li>HTML</li>
+              <li>CSS Grid</li>
+              <li>Flexbox</li>
+              <li>JavaScript</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/EjLaquiorez" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__media project-card__media--placeholder" aria-hidden="true">
+            <span>DB</span>
+          </div>
+          <div class="project-card__body">
+            <h3>Student Records App</h3>
+            <p>
+              A full-stack learning project that stores and queries student records in a
+              database. I worked through schema design, SQL queries, and wiring a simple
+              UI to server-side logic.
+            </p>
+            <ul class="project-tags">
+              <li>SQL</li>
+              <li>CRUD</li>
+              <li>APIs</li>
+              <li>Databases</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/EjLaquiorez" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section id="skills">
